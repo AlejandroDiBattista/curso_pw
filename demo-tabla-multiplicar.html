@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Generador de Tabla de Multiplicar</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+
+    <!-- Estilos CSS --> 
+    <style> 
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: lemonchiffon;
+      }
+      h2 {
+        text-align: center;
+        padding: 16px;
+        background: linear-gradient(150deg,#E71964,#9E69C5 50%);
+        color: yellow;
+      }
+      #numero, button {
+        font-size: 16px;
+        border-radius: 16px;
+        width: 96px;
+        margin: 8px 0px;
+        padding: 4px;
+        text-align: center;
+      }
+    </style>
+
+    <!-- Código JavaScript -->
+    <script> 
+      function generarTabla() { // Obtener el valor ingresado por el usuario
+        var numero = document.getElementById("numero").value;
+
+        // Validar que el número esté entre 1 y 100
+        if (numero < 1 || numero > 100) {
+            alert("El número debe estar entre 1 y 100");
+            return;
+        }
+
+        // Generar el encabezado de la tabla
+        var tabla = `<h3>Tabla del ${numero}</h3>`;
+
+        // Generar cada una de las filas
+        for (var i = 1; i <= 10; i++) {
+            tabla += `<p>${numero} * ${i} = ${ numero * i }</p>`;
+        }
+
+        // Mostrar la tabla
+        document.getElementById("tabla").innerHTML = tabla;
+     }
+
+    </script>
+  </head>
+
+  <body>
+    <h2>Generador de Tabla de Multiplicar</h2>
+    <form>
+      <label for="numero">Ingrese un número:</label> <br>
+      <input type="number" id="numero" >
+      <button type="button" onclick="generarTabla()">Generar</button>
+    </form>
+    <div id="tabla"></div>
+  </body>
+  
+</html>
